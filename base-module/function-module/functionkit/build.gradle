@@ -1,0 +1,97 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+android {
+    compileSdkVersion rootProject.ext.commonCompileSdkVersion
+
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.commonMinSdkVersion
+        targetSdkVersion rootProject.ext.android.commonTargetSdkVersion
+        versionCode rootProject.ext.android.commonVersionCode
+        versionName rootProject.ext.android.commonversionName
+        consumerProguardFiles "proguard-rules.pro"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //RxBinding 包含Rxjava2 Rxandroid2
+    api 'com.jakewharton.rxbinding2:rxbinding:2.0.0'
+    api "android.arch.lifecycle:runtime:1.1.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.0"
+    api 'com.github.pwittchen:reactivenetwork-rx2:0.9.1'
+    //权限管理
+    api 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
+
+    api 'com.google.code.gson:gson:2.7'
+    api 'com.zhouyou:rxeasyhttp:2.0.5'
+
+
+
+    if (isDependencies.toBoolean()) {
+        api('com.muheda.function:customrefreshlayout:1.0')
+        api('com.muheda.function:customtitleview:1.0')
+        api('com.muheda.function:pictureselect:1.0')
+        api('com.muheda.function:toast_dialog:1.0')
+//        api('com.muheda.function:sqlitepal:1.0')
+        api('com.muheda.function:imageloader:1.0')
+//        api('com.muheda.function:baseanimation:1.0')
+//        api('com.muheda.function:pickerview:1.0')
+//        api('com.muheda.function:bottombar:1.0')
+//        api('com.muheda:zxing:1.0')
+//        api('com.muheda.function:calendarview:1.0')
+        api('com.muheda.function:oldlib:1.0')
+        api('com.muheda.function:selector:1.0')
+    } else {
+
+        api project(':base-module:function-module:customtitleview')
+        api project(':base-module:function-module:imageloader')
+        api project(':base-module:function-module:customrefreshlayout')
+        api project(':base-module:function-module:toast_dialog')
+        //compile project(':function-module:servicelocation')
+        api project(':base-module:function-module:pictureselect')
+//        api project(':base-module:function-module:amapservice')
+        api project(':base-module:function-module:selector')
+        api project(':base-module:function-module:oldlib')
+    }
+}
+
+
+
+
+
+
+
+
+uploadArchives {
+    if (isAllPack.toBoolean() || isFunctionkitPack.toBoolean()) {
+        repositories {
+            mavenDeployer {
+                repository(url: "file://localhost/" + System.getenv("DATAACOUNT_HOME") + "/extras/")
+                pom.version = '1.0'
+                pom.groupId = 'com.muheda.function'
+                pom.artifactId = 'functionkit'
+            }
+        }
+    }
+}

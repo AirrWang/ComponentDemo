@@ -1,0 +1,11 @@
+include ':app', ':base-module:communicationinterface', ':base-module:basekit', ':mylibrary',
+        ':base-module:function-module:BottomNavigation',  ':base-module:function-module:loadandshare',
+        ":base-module:function-module:amapservice", ':base-module:function-module:citylocation', ':base-module:function-module:calendarview',':mylibrary'
+
+if (!isDependencies.toBoolean()) {
+    include ':base-module:system-module:systemkit', ':base-module:function-module:customrefreshlayout',
+            ':base-module:function-module:imageloader', ':base-module:function-module:toast_dialog',
+            ":base-module:function-module:pictureselect", ':base-module:function-module:customtitleview',
+            ':base-module:function-module:functionkit', ':base-module:function-module:selector',
+            ':base-module:function-module:citypickerview', ':base-module:function-module:oldlib'
+}

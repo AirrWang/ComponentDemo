@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+android {
+    compileSdkVersion rootProject.ext.commonCompileSdkVersion
+
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.commonMinSdkVersion
+        targetSdkVersion rootProject.ext.android.commonTargetSdkVersion
+        versionCode rootProject.ext.android.commonVersionCode
+        versionName rootProject.ext.android.commonversionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+uploadArchives {
+    if (isAllPack.toBoolean() || isToastdialogPack.toBoolean()) {
+        repositories {
+            mavenDeployer {
+                repository(url: "file://localhost/" + System.getenv("DATAACOUNT_HOME") + "/extras/")
+                pom.version = '1.0'
+                pom.groupId = 'com.muheda.function'
+                pom.artifactId = 'toast_dialog'
+            }
+        }
+    }
+}

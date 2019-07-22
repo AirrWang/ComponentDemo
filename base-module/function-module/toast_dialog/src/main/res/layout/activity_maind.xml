@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick1"
+            android:text="成功（确认）"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick2"
+            android:text="成功（标题 內容 确认）"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick3"
+            android:text="提示（标题 內容 确认）"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick4"
+            android:text="错误（标题 內容 确认）"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick5"
+            android:text="加载框"
+            android:visibility="gone"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick6"
+            android:text="自定义加载"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick7"
+            android:text="系統进度条"
+            android:textAllCaps="false" />
+
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/bt8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick8"
+            android:text="进度条 HorizontalWithNumberProgressBar"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick9"
+            android:text="进度条 RoundWidthNumberProgressBar"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/bt10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick10"
+            android:text="toast_top"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/bt11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick11"
+            android:text="toast_center"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/bt12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick12"
+            android:text="toast_normal"
+            android:textAllCaps="false" />
+        <Button
+            android:id="@+id/bt13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick13"
+            android:text="顶部通知"
+            android:textAllCaps="false" />
+
+
+    </LinearLayout>
+</ScrollView>
